@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -16,7 +17,8 @@ mainMenu: {
 customOptions: Array<any> = []
 
 
-  constructor() { }
+  // Se declara en el constructor la libreria router de angular router
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
@@ -69,5 +71,15 @@ customOptions: Array<any> = []
       }
     ]
   }
-
+  //  se realiza la funcion para el router con router Link
+  goTo($event: any): void {
+    this.router.navigate(['/', 'favorites'], {
+      //query parameters
+      queryParams: {
+        key1: 'value1',
+        key2: 'value2',
+        key3: 'value1'
+      }
+    })
+  }
 }

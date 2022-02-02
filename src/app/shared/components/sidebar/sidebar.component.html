@@ -1,7 +1,10 @@
 <div class="side-bar">
   <div><i class="uil uil-ellipsis-h"></i></div>
   <ul class="side-bar__list list-one">
-      <li *ngFor="let item of mainMenu.defaultOptions">
+      <!-- routerLink usando el html  -->
+      <li [routerLink]="item.router" [queryParams]="item.query" *ngFor="let item of mainMenu.defaultOptions">
+      <!-- Una manera similar de utilizar el router Link puede ser redirigir con una funcion click a el componente enviando el evento como parametro -->
+      <!-- <li (click)="goTo($event)" *ngFor="let item of mainMenu.defaultOptions"> -->
           <div class="list-wrapper-item">
               <i [ngClass]="['uil',item.icon]"></i>
               <span class="side-bar__list list-label">{{item.name}}</span>
